@@ -46,10 +46,10 @@ def get_field(field):
 def rebuild():
     coord = input("Введите координаты по типу а8, и1: ") #ввод координат
     d = {"а": 0, "б": 1, "в": 2, "г": 3, "д": 4, "е": 5, "ж": 6, "з": 7, "и": 8, "к": 9} #перевод буквенных координат в числовые
-    while (len(coord) != 2) or (not coord[0].isalpha()) or (not coord[1].isdigit()) or (coord[0] not in d.keys()) or not(0 <= int(coord[1]) - 1 <= 9): #если есть какая то ошибка в координатах или введенные координаты неправильны
+    while (len(coord) != 2) or (not coord[0].isalpha()) or (not coord[1].isdigit()) or (coord[0] not in d.keys()) or not(0 <= int(coord[1:]) - 1 <= 9): #если есть какая то ошибка в координатах или введенные координаты неправильны
         coord = input("Введите валидные координаты: ")
     y = d[coord[0]] #перевод буквенной координаты в числовую
-    x = int(coord[1]) - 1
+    x = int(coord[1:]) - 1
     return (x, y)
 #функция для определения пересечений с уже существующими кораблями (и для генерации направления )
 def get_intersect(field, coord):
